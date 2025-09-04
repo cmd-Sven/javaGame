@@ -2,30 +2,78 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="css/style.css" />
-    <script src="script/script.js"></script>
-    <title>Cooles GAME</title>
+    <link href="./css/style.css" rel="stylesheet" />
+    <script src="./script/script.js"></script>
+    <title>Java Fun</title>
   </head>
   <body>
-    <head> </head>
-    <main>
-      <section>
-        <div class="container">
+    <div class="header-container">
+      <h1>Punktestand</h1>
+      <div class="player player1 first">Player 1 <span id="point">0</span></div>
+      <div class="player player2">Player 2 <span id="point">0</span></div>
+    </div>
 
-              <button type="button" id="btn1" class="select"></button>
-              <button type="button" id="btn2" class="select"></button>
-              <button type="button" id="btn3" class="select"></button>
-              <button type="button" id="btn4" class="select"></button>
-              <button type="button" id="btn5" class="select"></button>
-              <button type="button" id="btn6" class="select"></button>
-              <button type="button" id="btn7" class="select"></button>
-              <button type="button" id="btn8" class="select"></button>
-              <button type="button" id="btn9" class="select"></button>
+    <h2>Tic Tac Toe</h2>
+    <div class="container">
+      <button
+        type="button"
+        id="btn1"
+        onclick="play('btn1')"
+        class="select"
+      ></button>
+      <button
+        type="button"
+        id="btn2"
+        onclick="play('btn2')"
+        class="select"
+      ></button>
+      <button
+        type="button"
+        id="btn3"
+        onclick="play('btn3')"
+        class="select"
+      ></button>
+      <button
+        type="button"
+        id="btn4"
+        onclick="play('btn4')"
+        class="select"
+      ></button>
+      <button
+        type="button"
+        id="btn5"
+        onclick="play('btn5')"
+        class="select"
+      ></button>
+      <button
+        type="button"
+        id="btn6"
+        onclick="play('btn6')"
+        class="select"
+      ></button>
+      <button
+        type="button"
+        id="btn7"
+        onclick="play('btn7')"
+        class="select"
+      ></button>
+      <button
+        type="button"
+        id="btn8"
+        onclick="play('btn8')"
+        class="select"
+      ></button>
+      <button
+        type="button"
+        id="btn9"
+        onclick="play('btn9')"
+        class="select"
+      ></button>
+    </div>
 
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
+    <div class="game-board">
+      <button class="replay-btn" onclick="replay()">Replay</button>
+      <button class="start-btn" onclick="start()">Play</button>
+    </div>
   </body>
 </html>

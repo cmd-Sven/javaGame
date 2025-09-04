@@ -1,6 +1,101 @@
+* {
+  padding: 0;
+  margin: 0;
+  user-select: none;
+  font-family: Arial;
+}
+body {
+  background-color: rgb(255, 255, 255);
+  display: flex;
+  justify-content: center;
+  /*  align-items: center;*/
+  height: 100vh;
+  margin-top: 30px;
+}
+*:focus {
+  outline: none;
+}
+
 .container {
+  margin-top: 100;
   height: 400px;
   width: 400px;
-  background-color: grey;
+  background-color: rgb(231, 157, 157);
   position: absolute;
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  gap: 5px;
+  justify-content: center;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.header-container .player {
+  font-size: 150%;
+  flex-basis: 42.5%;
+  color: #0c7903;
+  padding: 12.5px 0 12.5px 3%;
+  vertical-align: middle;
+}
+
+.header-container .player span {
+  float: right;
+  font-size: 65%;
+  border-left: 1px solid rgb(255, 127, 127);
+  padding: 5px 10px 5px 15px;
+  color: rgba(255, 127, 127, 0.75);
+}
+
+.player1 {
+  color: red;
+}
+
+.player2 {
+  color: blue;
+}
+
+.game-board {
+  align-items: center;
+
+  cursor: pointer;
+  font-size: 1rem;
+  margin: 10px;
+
+  border: 1px solid black;
+
+  border: 1px solid black;
+}
+.game-board .replay-btn {
+  color: red;
+}
+.game-board .start-btn {
+  color: blue;
+}
+
+.select {
+  background-color: #fff;
+  border: none;
+  transition: background-color 0.2s;
+  height: 100%;
+  width: 100%;
+  font-size: 400%;
+}
+.select:hover {
+  background-color: #dbdbdb;
+}
+.select:active {
+  background-color: #a8a8a8;
+}
+
+button {
+  width: 100px;
+  height: 70px;
+}
+
+button:hover {
+  background-color: #0c7903;
+  color: #fff;
 }
