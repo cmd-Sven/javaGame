@@ -5,32 +5,36 @@
   font-family: Arial;
 }
 body {
-  background-color: rgb(255, 255, 255);
+  background-image: url(../images/sithVSjedi.jpg);
+  background-position: center;
   display: flex;
-  justify-content: center;
-  /*  align-items: center;*/
-  height: 100vh;
+  flex-direction: column;
+  align-items: center;
   margin-top: 30px;
+  min-height: 100vh;
 }
 *:focus {
   outline: none;
 }
 
 .container {
-  margin-top: 100;
-  height: 400px;
-  width: 400px;
-  background-color: rgb(231, 157, 157);
-  position: absolute;
   display: grid;
   grid-template-columns: repeat(3, 100px);
-  gap: 5px;
-  justify-content: center;
+  grid-gap: 5px;
+  margin-top: 270px;
+  position: absolute;
+  height: 400px;
 }
 
 .header-container {
   display: flex;
   justify-content: space-between;
+  width: 300px;
+  margin-bottom: 30px;
+  gap: 10px;
+}
+.title {
+  color: white;
 }
 
 .header-container .player {
@@ -58,27 +62,33 @@ body {
 }
 
 .game-board {
+  display: flex;
+  justify-content: space-around;
+  width: 200px;
   align-items: center;
-
-  cursor: pointer;
-  font-size: 1rem;
   margin: 10px;
+}
 
-  border: 1px solid black;
-
-  border: 1px solid black;
+.replay-btn,
+.start-btn {
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: none;
+  color: white;
+  cursor: pointer;
 }
 .game-board .replay-btn {
-  color: red;
+  background-color: red;
 }
 .game-board .start-btn {
-  color: blue;
+  background-color: green;
 }
 
 .select {
-  background-color: #fff;
-  border: none;
+  background-color: #1d1d1d57;
+  border: 1px solid #0c7903;
   transition: background-color 0.2s;
+  cursor: pointer;
   height: 100%;
   width: 100%;
   font-size: 400%;
@@ -91,8 +101,8 @@ body {
 }
 
 button {
-  width: 100px;
-  height: 70px;
+  width: 80px;
+  height: 80px;
 }
 
 button:hover {
