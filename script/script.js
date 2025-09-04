@@ -37,12 +37,27 @@ function checkWin() {
     b[i] = document.getElementById("btn" + i).textContent;
   }
 
+  for (const [a, b1, c] of winCombos) {
+    if (b[a] && b[a] === b[b1] && b[a] === b[c]) {
+      alert(`Sieg: ${b[a]}`);
+      gameOver = true;
+      if (b[a] === "X") {
+        score1++;
+        document.getElementById("score1").textContent = score1;
+      } else {
+        score2++;
+        document.getElementById("score2").textContent = score2;
+      }
+      return;
+    }
+  }
+
   function replay() {
     board = ["", "", "", "", "", "", "", "", "", ""];
     for (let i = 1; i <= 9; i++) {
       document.getElementById("btn" + 1).textContent = "";
     }
-    turn = "X";
+    turn = "";
     gameOver = false;
   }
 
