@@ -136,3 +136,16 @@ document.addEventListener("click", () => {
     saberRed.classList.remove("visible");
   }
 });
+
+const duelAudio = document.getElementById("duelSound");
+
+document.addEventListener(
+  "click",
+  () => {
+    setTimeout(() => {
+      duelAudio.play();
+    }, 3000);
+    duelAudio.volume = 0.5;
+  },
+  { once: true }
+);
