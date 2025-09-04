@@ -34,16 +34,16 @@
       <div class="players">
         <!-- Player 1 -->
         <div class="player player1 first">
-            <img src="./img/avatar1.png" alt="Avatar Player 1" class="avatar left" />
-            <span class="name">Player 1</span>
+            <img src="./images/icons8-jedi-96.png" alt="Avatar Player 1" class="avatar left" />
+            <span class="name">Jedi</span>
             <span id="point1" class="points">0</span>
         </div>
 
         <!-- Player 2 -->
         <div class="player player2">
             <span id="point2" class="points">0</span>
-            <span class="name">Player 2</span>
-            <img src="./img/avatar2.png" alt="Avatar Player 2" class="avatar right" />
+            <span class="name">Sith </span>
+            <img src="./images/icons8-sith-96.png" alt="Avatar Player 2" class="avatar right" />
         </div>
     </div>
 
@@ -104,6 +104,7 @@
       ></button>
     </div>
 
+
     <div class="game-board">
       <button class="replay-btn" onclick="replay()">Replay</button>
       <button class="start-btn" onclick="start()">Play</button>
@@ -113,6 +114,8 @@
       src="./sound/lightsaber-ignition-6816.mp3"
       preload="auto"
     ></audio>
-    <script src="./script/animation-bg.js"></script>
+    <audio id="duelSound" src="./sound/duellofthefates.mp3" preload="auto"></audio>
+    
+<script src="./script/animation-bg.js"></script>
   </body>
 </html>
