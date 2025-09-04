@@ -3,4 +3,62 @@
   width: 400px;
   background-color: grey;
   position: absolute;
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  gap: 5px;
+  justify-content: center;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.header-container .player {
+  font-size: 150%;
+  flex-basis: 42.5%;
+  color: #016db2;
+  padding: 12.5px 0 12.5px 3%;
+  vertical-align: middle;
+}
+
+.header-container .player span {
+  float: right;
+  font-size: 65%;
+  border-left: 1px solid rgb(255, 127, 127);
+  padding: 5px 10px 5px 15px;
+  color: rgba(255, 127, 127, 0.75);
+}
+
+.player1 {
+  color: red;
+}
+
+.player2 {
+  color: blue;
+}
+
+.game-board {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+  padding: 20px;
+  border: 1px solid black;
+  color: rgb(19, 48, 182);
+}
+
+.select {
+  background-color: #fff;
+  border: none;
+  transition: background-color 0.2s;
+  height: 100%;
+  width: 100%;
+  font-size: 400%;
+}
+.select:hover {
+  background-color: #dbdbdb;
+}
+.select:active {
+  background-color: #a8a8a8;
 }
