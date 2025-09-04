@@ -1,3 +1,5 @@
+// ################## Animations des Hintergrundes via MATH */
+
 class Particle {
   constructor(x, y, color, ctx, area) {
     this.x = x;
@@ -76,3 +78,61 @@ function particleEffect(canvasId, color, area) {
 // Links: Blau, Rechts: Rot
 particleEffect("blueCanvas", "0,150,255", "left");
 particleEffect("redCanvas", "255,50,50", "right");
+
+/* #### Sound abspielen für Cursor Click inklsuive Funken#### */
+
+const sound = document.getElementById("laserSound");
+
+document.addEventListener("click", (e) => {
+  // 🔊 Sound abspielen
+  sound.currentTime = 0;
+  sound.play();
+
+  // ✨ Funken erzeugen
+  for (let i = 0; i < 8; i++) {
+    const spark = document.createElement("div");
+    spark.classList.add("spark");
+
+    // Position an Maus
+    spark.style.left = e.pageX + "px";
+    spark.style.top = e.pageY + "px";
+
+    // irgendwohin die Funken fliegen lassen
+    const angle = Math.random() * Math.PI * 2;
+    const distance = 40 + Math.random() * 20;
+    const x = Math.cos(angle) * distance + "px";
+    const y = Math.sin(angle) * distance + "px";
+    spark.style.setProperty("--x", x);
+    spark.style.setProperty("--y", y);
+
+    document.body.appendChild(spark);
+
+    // auch wieder entfernen ... fast vergessen xD
+    spark.addEventListener("animationend", () => spark.remove());
+  }
+});
+
+/* ############### Lichtschwertwechsel nach Click ############## */
+const cursor = document.getElementById("custom-cursor");
+const saberRed = document.getElementById("saber-red");
+const saberBlue = document.getElementById("saber-blue");
+
+let useRed = true;
+
+// Mausbewegung → Cursor folgt
+document.addEventListener("mousemove", (e) => {
+  cursor.style.left = e.clientX + "px";
+  cursor.style.top = e.clientY + "px";
+});
+
+// Klick → Lichtschwert wechseln + faden
+document.addEventListener("click", () => {
+  useRed = !useRed;
+  if (useRed) {
+    saberRed.classList.add("visible");
+    saberBlue.classList.remove("visible");
+  } else {
+    saberBlue.classList.add("visible");
+    saberRed.classList.remove("visible");
+  }
+});

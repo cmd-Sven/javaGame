@@ -3,8 +3,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="./css/style.css" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
     <script src="./script/script.js"></script>
-    <script src="./script/animation-bg.js"></script>
+
     <title>Java Fun</title>
   </head>
   <body>
@@ -12,10 +17,34 @@
     <canvas id="blueCanvas" class="particles"></canvas>
     <canvas id="redCanvas" class="particles"></canvas>
 
+    <div id="custom-cursor">
+      <img
+        id="saber-red"
+        src="./images/lightsaber-red.png"
+        class="saber visible"
+      />
+      <img id="saber-blue" src="./images/lightsaber-blue.png" class="saber" />
+    </div>
     <div class="header-container">
-      <h1 class="title">Punktestand</h1>
-      <div class="player player1 first">Player 1 <span id="point">0</span></div>
-      <div class="player player2">Player 2 <span id="point">0</span></div>
+      <h1 class="title">
+        <span class="jedi">Jedi Master</span>
+        <span class="vs explode">VS</span>
+        <span class="sith">Sith Lord</span>
+      </h1>
+      <div class="players">
+        <!-- Player 1 -->
+        <div class="player player1 first">
+            <img src="./img/avatar1.png" alt="Avatar Player 1" class="avatar left" />
+            <span class="name">Player 1</span>
+            <span id="point1" class="points">0</span>
+        </div>
+
+        <!-- Player 2 -->
+        <div class="player player2">
+            <span id="point2" class="points">0</span>
+            <span class="name">Player 2</span>
+            <img src="./img/avatar2.png" alt="Avatar Player 2" class="avatar right" />
+        </div>
     </div>
 
     <div class="container">
@@ -79,5 +108,11 @@
       <button class="replay-btn" onclick="replay()">Replay</button>
       <button class="start-btn" onclick="start()">Play</button>
     </div>
+    <audio
+      id="laserSound"
+      src="./sound/lightsaber-ignition-6816.mp3"
+      preload="auto"
+    ></audio>
+    <script src="./script/animation-bg.js"></script>
   </body>
 </html>
