@@ -187,7 +187,7 @@ function showDicePopup(callback) {
   modal.className = "dice-modal";
 
   const title = document.createElement("h2");
-  title.innerText = "Würfeln...";
+  title.innerText = "May the force be with you";
   modal.appendChild(title);
 
   const face = document.createElement("div");
@@ -197,7 +197,7 @@ function showDicePopup(callback) {
 
   const info = document.createElement("p");
   info.className = "dice-info";
-  info.innerText = "Der zehnseitige Würfel startet in Kürze...";
+  info.innerText = "Der Machtwürfel entscheidet!";
   modal.appendChild(info);
 
   overlay.appendChild(modal);
