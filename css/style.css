@@ -52,12 +52,20 @@ button,
   grid-gap: 5px;
   margin-top: 270px;
   position: absolute;
-  height: 350px;
+  height: 500px;
 
-  transform: translateY(-20px); /* leicht nach oben verschoben */
+  /* Anfangszustand: versteckt */
+  opacity: 0;
+  transform: translateY(30px);
   transition: opacity 0.6s ease, transform 0.6s ease;
+  pointer-events: none; /* keine Klicks möglich solange versteckt */
+}
 
-  /* optional: sanft schweben */
+/* Aktiv, nach Start */
+.container.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
   animation: floatUpDown 2s ease-in-out infinite alternate;
 }
 
