@@ -40,13 +40,13 @@ function play(id) {
   if (checkWinner()) {
     gameActive = false;
     updatePoints();
-    alert((currentPlayer === "X" ? "Jedi" : "Sith") + " gewinnt!");
+    showMessage((currentPlayer === "X" ? "Jedi" : "Sith") + " gewinnt!");
     return;
   }
 
   if (!board.includes("")) {
     gameActive = false;
-    alert("Unentschieden!");
+    showMessage("Unentschieden!");
     return;
   }
 
@@ -79,4 +79,12 @@ function replay() {
   });
   document.getElementById("duelSound").pause();
   document.getElementById("duelSound").currentTime = 0;
+}
+
+function showMessage(message) {
+  const msgBox = document.createElement("div");
+  msgBox.className = "message-box";
+  msgBox.innerText = message;
+  document.body.appendChild(msgBox);
+  setTimeout(() => msgBox.remove(), 2000);
 }

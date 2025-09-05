@@ -381,3 +381,17 @@ canvas.particles {
 #custom-cursor .visible {
   opacity: 1;
 }
+
+.message-box {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255, 0, 0, 0.9); 
+  color: white;
+  padding: 2rem 3rem; 
+  border-radius: 12px;
+  font-size: 1.5rem; 
+  z-index: 10000;
+  animation: fadeOut 2s forwards;
+}
