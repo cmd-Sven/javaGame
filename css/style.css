@@ -34,7 +34,7 @@ button,
   grid-gap: 5px;
   margin-top: 270px;
   position: absolute;
-  height: 400px;
+  height: 350px;
 
   transform: translateY(-20px); /* leicht nach oben verschoben */
   transition: opacity 0.6s ease, transform 0.6s ease;
@@ -265,20 +265,21 @@ button,
 
 .select {
   background-color: #1d1d1d57;
-  border: 2px solid #0c7903;
+  border: 2px solid #d1950a;
+  border-radius: 20px;
   transition: background-color 0.2s, transform 0.2s;
   color: white;
   cursor: pointer;
-  height: 100%;
-  width: 100%;
-  font-size: 400%;
+  height: 100px;
+  width: 100px;
+  font-size: 300%;
 }
 .select:hover {
-  background-color: #363030;
+  background-color: #363030a2;
 }
 
 .select:active {
-  background-color: #a8a8a8;
+  background-color: #a8a8a8be;
 }
 
 /* Animationen Background with Canvas*/
