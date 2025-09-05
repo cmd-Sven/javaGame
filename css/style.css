@@ -421,3 +421,60 @@ canvas.particles {
   z-index: 10000;
   animation: fadeOut 2s forwards;
 }
+
+/* Würfel + Animation + PopUp */
+
+/* Overlay / Modal für Würfel */
+.dice-overlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 9999; /* hoch, damit es die Buttons überlagert */
+}
+
+.dice-modal {
+  background: rgba(10, 10, 10, 0.95);
+  padding: 24px;
+  border-radius: 12px;
+  min-width: 260px;
+  text-align: center;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
+  color: #fff;
+  font-family: "Orbitron", Arial, sans-serif;
+}
+
+.dice-modal h2 {
+  margin: 0 0 12px 0;
+  font-size: 20px;
+  letter-spacing: 1px;
+}
+
+.dice-face {
+  font-size: 72px;
+  line-height: 1;
+  font-weight: 700;
+  margin: 8px 0;
+  transition: transform 120ms ease;
+  animation: dice-pulse 900ms infinite ease-in-out;
+}
+
+.dice-info {
+  font-size: 14px;
+  margin-top: 8px;
+  opacity: 0.9;
+}
+
+@keyframes dice-pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.08);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
