@@ -181,3 +181,17 @@ function playRandomSound() {
   // rausnehmen das er nicht wieder zur Auswahl steht xD
   soundsLeft.splice(randIndex, 1);
 }
+
+// Globale Klick-Überwachung
+document.addEventListener("click", () => {
+  // falls keine Sounds mehr übrig sind, nichts tun
+  if (soundsLeft.length === 0) return;
+
+  clickCount++;
+
+  if (clickCount >= triggerCount) {
+    playRandomSound();
+    clickCount = 0;
+    triggerCount = getRandomTrigger();
+  }
+});
