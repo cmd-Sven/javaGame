@@ -3,16 +3,21 @@ let gameActive = false;
 let board = ["", "", "", "", "", "", "", "", ""];
 
 const winningCombinations = [
-  [0,1,2], [3,4,5], [6,7,8], // Reihen
-  [0,3,6], [1,4,7], [2,5,8], // Spalten
-  [0,4,8], [2,4,6]           // Diagonalen
+  [0, 1, 2],
+  [3, 4, 5],
+  [6, 7, 8], // Reihen
+  [0, 3, 6],
+  [1, 4, 7],
+  [2, 5, 8], // Spalten
+  [0, 4, 8],
+  [2, 4, 6], // Diagonalen
 ];
 
 function start() {
   gameActive = true;
   board = ["", "", "", "", "", "", "", "", ""];
   currentPlayer = "X";
-  document.querySelectorAll(".select").forEach(btn => {
+  document.querySelectorAll(".select").forEach((btn) => {
     btn.innerText = "";
     btn.disabled = false;
   });
@@ -27,7 +32,7 @@ function play(id) {
 
   board[index] = currentPlayer;
   const btn = document.getElementById(id);
-  btn.innerText = currentPlayer === "X" ? "⚔️" : "💀"; 
+  btn.innerText = currentPlayer === "X" ? "⚔️" : "💀";
   btn.disabled = true;
 
   document.getElementById("laserSound").play();
@@ -50,8 +55,8 @@ function play(id) {
 }
 
 function checkWinner() {
-  return winningCombinations.some(combination => {
-    return combination.every(index => board[index] === currentPlayer);
+  return winningCombinations.some((combination) => {
+    return combination.every((index) => board[index] === currentPlayer);
   });
 }
 
@@ -68,7 +73,7 @@ function updatePoints() {
 function replay() {
   gameActive = false;
   board = ["", "", "", "", "", "", "", "", ""];
-  document.querySelectorAll(".select").forEach(btn => {
+  document.querySelectorAll(".select").forEach((btn) => {
     btn.innerText = "";
     btn.disabled = true;
   });
