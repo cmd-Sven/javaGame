@@ -21,6 +21,10 @@ function start() {
     btn.innerText = "";
     btn.disabled = false;
   });
+
+  const container = document.querySelector(".container");
+  container.classList.add("visible");
+
   document.getElementById("duelSound").play();
 }
 
@@ -79,6 +83,9 @@ function replay() {
   });
   document.getElementById("duelSound").pause();
   document.getElementById("duelSound").currentTime = 0;
+
+  const container = document.querySelector(".container");
+  container.classList.remove("visible"); // Container ausblenden
 }
 
 function showMessage(message) {

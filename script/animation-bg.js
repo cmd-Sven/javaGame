@@ -149,3 +149,35 @@ document.addEventListener(
   },
   { once: true }
 );
+
+// Click Counter für die Soundtabelle
+
+let clickCount = 0;
+let triggerCount = getRandomTrigger();
+let soundsLeft = [
+  "./sound/faithDisturbing.mp3",
+  "./sound/breathing.mp3",
+  "./sound/lightsaber1.mp3",
+  "./sound/Power.mp3",
+  "./sound/lightsaber2.mp3",
+  "./sound/darthvader2.mp3",
+  "./sound/dartVader1.mp3",
+];
+
+// Zufälligen Trigger (2–4 Klicks)
+function getRandomTrigger() {
+  return Math.floor(Math.random() * 3) + 2;
+  // 2, 3 oder 4
+}
+
+// Sound zufällig auswählen
+function playRandomSound() {
+  const randIndex = Math.floor(Math.random() * soundsLeft.length);
+  const soundFile = soundsLeft[randIndex];
+
+  const audio = new Audio(soundFile);
+  audio.play();
+
+  // rausnehmen das er nicht wieder zur Auswahl steht xD
+  soundsLeft.splice(randIndex, 1);
+}
