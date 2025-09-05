@@ -1,56 +1,90 @@
-// javaScript
-let turn = "X";
-let gameOver = false;
-let board = ["", "", "", "", "", "", "", "", "", ""];
-let score1 = 0;
-let score2 = 0;
+// 🟢 Der aktuelle Spieler (X beginnt immer)
+let currentPlayer = "X";
 
-plays = {
-  player1: ["X", "#0606b5ff", [], 0],
-  player2: ["O", "#a30000", [], 0],
-};
+// 🟢 Spielfeld: 9 Felder (leer am Anfang)
+let board = ["", "", "", "", "", "", "", "", ""];
 
-function play(n) {
-  if (gameOver) return;
-  const btn = document.getElementById("btn" + n);
-  if (btn.textContent !== "") return;
+// 🟢 Punktestand für beide Spieler
+let player1Score = 0;
+let player2Score = 0;
 
-  btn.textContent = turn;
-  checkWin();
-  turn = turn === "X" ? "O" : "X";
+// 🟢 Funktion: Wird aufgerufen, wenn ein Button (Feld) geklickt wird
+function play(id) {
+  const index = parseInt(id.replace("btn", "")) - 1;
+  const button = document.getElementById(id);
+
+  if (board[index] === "") {
+    board[index] = currentPlayer;
+    button.textContent = currentPlayer;
+
+    if (checkWinner()) {
+      if (currentPlayer === "X") player1Score++;
+      else player2Score++;
+      updateScore();
+      disableBoard();
+      alert(currentPlayer + " gewinnt!");
+      return;
+    }
+
+    if (!board.includes("")) {
+      alert("Unentschieden!");
+      replay();
+      return;
+    }
+
+    currentPlayer = currentPlayer === "X" ? "O" : "X";
+  }
 }
 
-function checkWin() {
+// 🟢 Gewinner prüfen
+function checkWinner() {
   const winCombos = [
-    [1, 2, 3],
-    [4, 5, 6],
-    [7, 8, 9],
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8],
+    [0, 3, 6],
     [1, 4, 7],
     [2, 5, 8],
-    [3, 6, 9],
-    [1, 5, 9],
-    [3, 5, 7],
+    [0, 4, 8],
+    [2, 4, 6],
   ];
 
-  const b = [];
+  return winCombos.some(
+    (combo) =>
+      board[combo[0]] &&
+      board[combo[0]] === board[combo[1]] &&
+      board[combo[0]] === board[combo[2]]
+  );
+}
+
+// 🟢 Punktestand aktualisieren
+function updateScore() {
+  document.getElementById("score1").textContent = player1Score;
+  document.getElementById("score2").textContent = player2Score;
+}
+
+// 🟢 Spielfeld deaktivieren nach Sieg
+function disableBoard() {
+  board.forEach((_, i) => {
+    document.getElementById("btn" + (i + 1)).disabled = true;
+  });
+}
+
+// 🟢 Neues Spiel starten (nur Spielfeld leeren, Punkte bleiben)
+function replay() {
+  board = ["", "", "", "", "", "", "", "", ""];
+  currentPlayer = "X";
   for (let i = 1; i <= 9; i++) {
-    b[i] = document.getElementById("btn" + i).textContent;
+    const btn = document.getElementById("btn" + i);
+    btn.textContent = "";
+    btn.disabled = false;
   }
+}
 
-  function replay() {
-    board = ["", "", "", "", "", "", "", "", "", ""];
-    for (let i = 1; i <= 9; i++) {
-      document.getElementById("btn" + 1).textContent = "";
-    }
-    turn = "X";
-    gameOver = false;
-  }
-
-  function start() {
-    replay();
-    score1 = 0;
-    score2 = 0;
-    document.getElementById("score1").textContent = "0";
-    document.getElementById("score2").textContent = "0";
-  }
+// 🟢 Alles zurücksetzen (inkl. Punktestand)
+function start() {
+  player1Score = 0;
+  player2Score = 0;
+  updateScore();
+  replay();
 }

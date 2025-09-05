@@ -3,14 +3,17 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="./css/style.css" rel="stylesheet" />
-    <script src="./script/script.js"></script>
-    <title>Java Fun</title>
+    
+    <title>Tic Tac Toe </title>
   </head>
   <body>
+
+    <div class="overlay"></div> 
+
     <div class="header-container">
       <h1 class="title">Punktestand</h1>
-      <div class="player player1 first">Player 1 <span id="point">0</span></div>
-      <div class="player player2">Player 2 <span id="point">0</span></div>
+    <div class="player player1 first">Player 1 <span id="score1">0</span></div>
+    <div class="player player2">Player 2 <span id="score2">0</span></div>
     </div>
 
     <div class="container">
@@ -74,5 +77,8 @@
       <button class="replay-btn" onclick="replay()">Replay</button>
       <button class="start-btn" onclick="start()">Play</button>
     </div>
+ 
+    <script src="./script/script.js"></script>
+
   </body>
 </html>
