@@ -1,4 +1,4 @@
-let currentPlayer = "X"; // Jedi = X, Sith = O
+let currentPlayer = "O"; // Jedi = X, Sith = O
 let gameActive = false;
 let board = ["", "", "", "", "", "", "", "", ""];
 
@@ -16,9 +16,9 @@ const winningCombinations = [
 function start() {
   gameActive = true;
   board = ["", "", "", "", "", "", "", "", ""];
-  currentPlayer = "X";
+  currentPlayer = "O";
   document.querySelectorAll(".select").forEach((btn) => {
-    btn.innerText = "";
+    btn.innerHTML = "";
     btn.disabled = false;
   });
 
@@ -28,6 +28,12 @@ function start() {
   document.getElementById("duelSound").play();
 }
 
+const iconJ =
+  '<img style="width:55px" src="./images/icons8-jedi-96.png" alt="J">';
+
+const iconS =
+  '<img style="width:55px" src="./images/icons8-sith-96.png" alt"S">';
+
 function play(id) {
   if (!gameActive) return;
 
@@ -36,7 +42,7 @@ function play(id) {
 
   board[index] = currentPlayer;
   const btn = document.getElementById(id);
-  btn.innerText = currentPlayer === "X" ? "⚔️" : "💀";
+  btn.innerHTML = currentPlayer === "O" ? iconS : iconJ;
   btn.disabled = true;
 
   document.getElementById("laserSound").play();
@@ -44,7 +50,7 @@ function play(id) {
   if (checkWinner()) {
     gameActive = false;
     updatePoints();
-    showMessage((currentPlayer === "X" ? "Jedi" : "Sith") + " gewinnt!");
+    showMessage((currentPlayer === "O" ? "Sith" : "Jedi") + " gewinnt!");
     return;
   }
 
@@ -55,7 +61,7 @@ function play(id) {
   }
 
   // Spielerwechsel
-  currentPlayer = currentPlayer === "X" ? "O" : "X";
+  currentPlayer = currentPlayer === "O" ? "X" : "O";
 }
 
 function checkWinner() {
@@ -65,12 +71,12 @@ function checkWinner() {
 }
 
 function updatePoints() {
-  if (currentPlayer === "X") {
+  if (currentPlayer === "O") {
     let points = parseInt(document.getElementById("point1").innerText);
-    document.getElementById("point1").innerText = points + 1;
+    document.getElementById("point2").innerText = points + 1;
   } else {
     let points = parseInt(document.getElementById("point2").innerText);
-    document.getElementById("point2").innerText = points + 1;
+    document.getElementById("point1").innerText = points + 1;
   }
 }
 
@@ -78,7 +84,7 @@ function replay() {
   gameActive = false;
   board = ["", "", "", "", "", "", "", "", ""];
   document.querySelectorAll(".select").forEach((btn) => {
-    btn.innerText = "";
+    btn.innerHTML = "";
     btn.disabled = true;
   });
   document.getElementById("duelSound").pause();

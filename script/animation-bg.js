@@ -114,8 +114,8 @@ document.addEventListener("click", (e) => {
 
 /* ############### Lichtschwertwechsel nach Click ############## */
 const cursor = document.getElementById("custom-cursor");
-const saberRed = document.getElementById("saber-red");
-const saberBlue = document.getElementById("saber-blue");
+const saberRed = document.getElementById("saber-blue");
+const saberBlue = document.getElementById("saber-red");
 
 let useRed = true;
 
